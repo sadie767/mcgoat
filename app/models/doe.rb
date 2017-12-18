@@ -1,5 +1,5 @@
 class Doe < ActiveRecord::Base
-  validates :image, :presence => true
+  # validates :image, :presence => true
   validates :name, :presence => true
   validates :price, :presence => true
 

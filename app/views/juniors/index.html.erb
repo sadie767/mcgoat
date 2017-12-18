@@ -2,7 +2,7 @@
 <div class="row">
   <% @juniors.each do |junior| %>
   <div class="col-md-4">
-    <%= image_tag('goat.jpg', :width =>'150') %>
+    <%= image_tag('junior.jpg', :width =>'150') %>
     <li><%= link_to junior.name, junior_path(junior), remote: true %></li>
     <li><%= number_to_currency junior.price %></li>
     </div>
