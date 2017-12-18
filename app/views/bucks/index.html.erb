@@ -1,0 +1,10 @@
+<h1>Show Bucks</h1>
+<div class="row">
+  <% @bucks.each do |buck| %>
+  <div class="col-md-4">
+    <%= image_tag('goat.jpg', :width =>'150') %>
+    <li><%= link_to buck.name, buck_path(buck), remote: true %></li>
+    <li><%= number_to_currency buck.price %></li>
+    </div>
+  <% end %>
+</div>

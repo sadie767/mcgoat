@@ -1,0 +1,10 @@
+<h1>Show Does</h1>
+<div class="row">
+  <% @does.each do |doe| %>
+  <div class="col-md-4">
+    <%= image_tag('goat.jpg', :width =>'150') %>
+    <li><%= link_to doe.name, doe_path(doe), remote: true %></li>
+    <li><%= number_to_currency doe.price %></li>
+    </div>
+  <% end %>
+</div>
