@@ -42,6 +42,6 @@ class BucksAwardsController < ApplicationController
 
   private
     def bucks_award_params
-      params.require(:bucks_award).permit(:award, :buck_id)
+      params.require(:bucks_award).permit(:award, :pedigree, :buck_id)
     end
   end

@@ -42,6 +42,6 @@ class JuniorsAwardsController < ApplicationController
 
   private
     def juniors_award_params
-      params.require(:juniors_award).permit(:award, :junior_id)
+      params.require(:juniors_award).permit(:award, :pedigree, :junior_id)
     end
   end

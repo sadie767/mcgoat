@@ -42,6 +42,6 @@ class DoesAwardsController < ApplicationController
 
   private
     def does_award_params
-      params.require(:does_award).permit(:award, :doe_id)
+      params.require(:does_award).permit(:award, :pedigree, :doe_id)
     end
   end

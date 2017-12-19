@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218182640) do
+ActiveRecord::Schema.define(version: 20171218182634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 20171218182640) do
 
   create_table "bucks_awards", force: :cascade do |t|
     t.string "award"
-    t.integer "buck_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "bucks_pedigrees", force: :cascade do |t|
     t.string "pedigree"
     t.integer "buck_id"
     t.datetime "created_at", null: false
@@ -47,12 +41,6 @@ ActiveRecord::Schema.define(version: 20171218182640) do
 
   create_table "does_awards", force: :cascade do |t|
     t.string "award"
-    t.integer "doe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "does_pedigrees", force: :cascade do |t|
     t.string "pedigree"
     t.integer "doe_id"
     t.datetime "created_at", null: false
@@ -69,12 +57,6 @@ ActiveRecord::Schema.define(version: 20171218182640) do
 
   create_table "juniors_awards", force: :cascade do |t|
     t.string "award"
-    t.integer "junior_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "juniors_pedigrees", force: :cascade do |t|
     t.string "pedigree"
     t.integer "junior_id"
     t.datetime "created_at", null: false
