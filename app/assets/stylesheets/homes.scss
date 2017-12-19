@@ -3,16 +3,31 @@ html {
 }
 
 body#home {
-  background: url(https://i.pinimg.com/originals/c1/bb/f7/c1bbf786584e36e7e7820083560dff9d.jpg) no-repeat center center fixed;
-  -webkit-background-size: auto;
-  -moz-background-size: auto;
-  -o-background-size: auto;
-  background-size: auto;
+  background: url(https://i.pinimg.com/originals/c1/bb/f7/c1bbf786584e36e7e7820083560dff9d.jpg) no-repeat center top fixed;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
 }
 
-#home_title {
+.home_title {
   text-align: center;
+  color: white;
   font-size: 50px;
   margin-top: 0;
   font-family: 'Indie Flower'
+}
+
+#spacing {
+  margin-top: 620px;
+  text-align: center;
+  font-family: 'Indie Flower'
+}
+
+#large {
+  font-size: 50px;
+}
+
+#small {
+  font-size: 30px;
 }

@@ -1,11 +1,10 @@
-<div class="row">
-  <div class="col-md-4">
+<%= image_tag 'doe.jpeg' %>
+<h1><%= @doe.name %></h1>
+<h2><%= @doe.price %></h2>
 
-  </div>
-  <div class="col-md-4">
-
-  </div>
-  <div class="col-md-4">
-
-  </div>
-</div>
+<h3><%= link_to 'Edit', edit_do_path %>
+<%= @doe.name %></h3>
+<h3><%= link_to 'Add Awards', new_does_award_path %>
+<h3><%= link_to 'Edit Awards', edit_does_award_path %>
+<h3><%= link_to 'Add Pedigree', new_does_pedigree_path %>
+<h3><%= link_to 'Edit Pedigree', edit_does_pedigree_path %>

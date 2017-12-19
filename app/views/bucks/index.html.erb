@@ -3,8 +3,9 @@
   <% @bucks.each do |buck| %>
   <div class="col-md-4">
     <%= image_tag('goat.jpg', :width =>'150') %>
-    <li><%= link_to buck.name, buck_path(buck), remote: true %></li>
+    <li><%= link_to buck.name, buck_path(buck) %></li>
     <li><%= number_to_currency buck.price %></li>
     </div>
   <% end %>
 </div>
+<h3><%= link_to 'New Buck', new_buck_path %></h3>

@@ -1,0 +1,10 @@
+<div class="border_form">
+<%= form_for @juniors_pedigree do |f| %>
+  <%= f.label :pedigree %>
+  <%= f.text_field :pedigree %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
+
+<%= render "layouts/errors", :object => @juniors_pedigree %>
+</div>
