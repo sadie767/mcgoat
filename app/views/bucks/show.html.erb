@@ -4,5 +4,29 @@
 
 <h3><%= link_to 'Edit', edit_buck_path %>
 <%= @buck.name %></h3>
-<h3><%= link_to 'Add Awards', new_bucks_award_path %>
-<h3><%= link_to 'Edit Awards', edit_bucks_award_path %>
+<% if @buck.bawards.any? %>
+  <h4>Here are the bawards for this buck:</h4>
+
+  <ul>
+    <% @buck.bawards.each do |baward| %>
+      <li>
+        <%= baward.award %> |
+        <%= baward.pedigree %><br>
+        <%= link_to "Edit", edit_buck_baward_path(@buck, baward) %> Buck's Pedigree or Award <br>
+        <%= link_to "Delete", buck_baward_path(@buck, baward),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no bawards yet!</p>
+<% end %>
+
+<p><%= link_to "Add bucks pedigree and/or an award.", new_buck_baward_path(@buck) %></p>
+<p><%= link_to "Edit buck", edit_buck_path(@buck) %></p>
+<p><%= link_to "Delete Buck", buck_path(@buck),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to bucks", bucks_path %></p>

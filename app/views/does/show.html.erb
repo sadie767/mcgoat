@@ -4,5 +4,28 @@
 
 <h3><%= link_to 'Edit', edit_do_path %>
 <%= @doe.name %></h3>
-<h3><%= link_to 'Add Awards', new_does_award_path %>
-<h3><%= link_to 'Edit Awards', edit_does_award_path %>
+<% if @doe.dawards.any? %>
+  <h4>Here are the dawards for this doe:</h4>
+
+  <ul>
+    <% @doe.dawards.each do |daward| %>
+      <li>
+        <%= daward.description %> |
+        <%= link_to "Edit daward", edit_do_daward_path(@doe, daward) %> |
+        <%= link_to "Delete", do_daward_path(@doe, daward),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no dawards yet!</p>
+<% end %>
+
+<p><%= link_to "Add a daward", new_do_daward_path(@doe) %></p>
+<p><%= link_to "Edit doe", edit_do_path(@doe) %></p>
+<p><%= link_to "Delete List", do_path(@doe),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to does", does_path %></p>

@@ -1,6 +1,6 @@
-class CreateBucksAwards < ActiveRecord::Migration[5.1]
+class CreateBawards < ActiveRecord::Migration[5.1]
   def change
-    create_table :bucks_awards do |t|
+    create_table :bawards do |t|
       t.column :award, :string
       t.column :pedigree, :string
       t.column :buck_id, :integer

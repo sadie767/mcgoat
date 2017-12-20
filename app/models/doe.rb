@@ -3,6 +3,5 @@ class Doe < ActiveRecord::Base
   validates :name, :presence => true
   validates :price, :presence => true
 
-  has_many :does_awards
-  has_many :does_pedigrees
+  has_many :dawards
 end

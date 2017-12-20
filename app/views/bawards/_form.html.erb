@@ -1,5 +1,5 @@
 <div class="border_form">
-<%= form_for @juniors_award do |f| %>
+<%= form_for [@buck, @baward] do |f| %>
   <%= f.label :award %>
   <%= f.text_field :award %>
   <br><br>
@@ -7,8 +7,7 @@
   <%= f.text_field :pedigree %>
   <br><br>
   <%= f.submit %>
-  <%= f.submit %>
 <% end %>
 
-<%= render "layouts/errors", :object => @juniors_award %>
+<%= render "layouts/errors", :object => @baward %>
 </div>

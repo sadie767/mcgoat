@@ -2,7 +2,7 @@
 <div class="row">
   <% @bucks.each do |buck| %>
   <div class="col-md-4">
-    <%= image_tag('goat.jpg', :width =>'150') %>
+    <div class="circle"><%= image_tag('goat.jpg', :width =>'150') %></div>
     <li><%= link_to buck.name, buck_path(buck) %></li>
     <li><%= number_to_currency buck.price %></li>
     </div>

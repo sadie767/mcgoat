@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218182634) do
+ActiveRecord::Schema.define(version: 20171219230904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bawards", force: :cascade do |t|
+    t.string "award"
+    t.string "pedigree"
+    t.integer "buck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bucks", force: :cascade do |t|
     t.string "image"
@@ -23,10 +31,10 @@ ActiveRecord::Schema.define(version: 20171218182634) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bucks_awards", force: :cascade do |t|
+  create_table "dawards", force: :cascade do |t|
     t.string "award"
     t.string "pedigree"
-    t.integer "buck_id"
+    t.integer "doe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,10 +47,10 @@ ActiveRecord::Schema.define(version: 20171218182634) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "does_awards", force: :cascade do |t|
+  create_table "jawards", force: :cascade do |t|
     t.string "award"
     t.string "pedigree"
-    t.integer "doe_id"
+    t.integer "junior_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,14 +59,6 @@ ActiveRecord::Schema.define(version: 20171218182634) do
     t.string "image"
     t.string "name"
     t.decimal "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "juniors_awards", force: :cascade do |t|
-    t.string "award"
-    t.string "pedigree"
-    t.integer "junior_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

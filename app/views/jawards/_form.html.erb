@@ -1,5 +1,5 @@
 <div class="border_form">
-<%= form_for @does_award do |f| %>
+<%= form_for [@junior, @jaward] do |f| %>
   <%= f.label :award %>
   <%= f.text_field :award %>
   <br><br>
@@ -10,5 +10,5 @@
   <%= f.submit %>
 <% end %>
 
-<%= render "layouts/errors", :object => @does_award %>
+<%= render "layouts/errors", :object => @jaward %>
 </div>

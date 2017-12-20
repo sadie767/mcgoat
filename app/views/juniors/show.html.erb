@@ -4,5 +4,28 @@
 
 <h3><%= link_to 'Edit', edit_junior_path %>
 <%= @junior.name %></h3>
-<h3><%= link_to 'Add Awards', new_juniors_award_path %>
-<h3><%= link_to 'Edit Awards', edit_juniors_award_path %>
+<% if @junior.jawards.any? %>
+  <h4>Here are the jawards for this junior:</h4>
+
+  <ul>
+    <% @junior.jawards.each do |jaward| %>
+      <li>
+        <%= jaward.description %> |
+        <%= link_to "Edit jaward", edit_junior_jaward_path(@junior, jaward) %> |
+        <%= link_to "Delete", junior_jaward_path(@junior, jaward),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no jawards yet!</p>
+<% end %>
+
+<p><%= link_to "Add a jaward", new_junior_jaward_path(@junior) %></p>
+<p><%= link_to "Edit junior", edit_junior_path(@junior) %></p>
+<p><%= link_to "Delete List", junior_path(@junior),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to juniors", juniors_path %></p>

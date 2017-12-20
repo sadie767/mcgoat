@@ -3,6 +3,5 @@ class Junior < ActiveRecord::Base
   validates :name, :presence => true
   validates :price, :presence => true
 
-  has_many :juniors_awards
-  has_many :juniors_pedigrees
+  has_many :jawards
 end
