@@ -1,4 +1,7 @@
 class DawardsController < ApplicationController
+  before_action :authorize
+  before_action :authorize_admin
+
   def new
       @doe = Doe.find(params[:doe_id])
       @daward = @doe.dawards.new

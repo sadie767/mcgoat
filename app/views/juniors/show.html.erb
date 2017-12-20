@@ -1,31 +1,34 @@
-<%= image_tag 'junior.jpeg' %>
+<%= image_tag 'junior.jpeg', :class => "size_show" %>
 <h1><%= @junior.name %></h1>
-<h2><%= @junior.price %></h2>
-
-<h3><%= link_to 'Edit', edit_junior_path %>
-<%= @junior.name %></h3>
+<h2><%= number_to_currency @junior.price %></h2>
+<% if current_user %>
+  <h3><%= link_to 'Edit', edit_junior_path %>
+  <% end %>
 <% if @junior.jawards.any? %>
-  <h4>Here are the jawards for this junior:</h4>
+  <h4>Here are the accolades for <%= @junior.name %>:</h4>
 
   <ul>
     <% @junior.jawards.each do |jaward| %>
       <li>
         <%= jaward.description %> |
-        <%= link_to "Edit jaward", edit_junior_jaward_path(@junior, jaward) %> |
-        <%= link_to "Delete", junior_jaward_path(@junior, jaward),
-                                 :data => {:confirm => "Are you sure?",
-                                                :method => "delete"} %>
+        <% if current_user %>
+          <%= link_to "Edit Accolades", edit_junior_jaward_path(@junior, jaward) %> |
+          <%= link_to "Delete", junior_jaward_path(@junior, jaward),
+                                   :data => {:confirm => "Are you sure?",
+                                                  :method => "delete"} %>
+        <% end %>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no jawards yet!</p>
+  <p>There Are No Accolades Yet!</p>
+<% end %>
+<% if current_user %>
+  <p><%= link_to "Add Junior Does Pedigree or Award.", new_junior_jaward_path(@junior) %></p>
+  <p><%= link_to "Edit Junior", edit_junior_path(@junior) %></p>
+  <p><%= link_to "Delete Junior", junior_path(@junior),
+                          :data => {:confirm => "Are you sure?",
+                                         :method => "delete"} %></p>
 <% end %>
 
-<p><%= link_to "Add a jaward", new_junior_jaward_path(@junior) %></p>
-<p><%= link_to "Edit junior", edit_junior_path(@junior) %></p>
-<p><%= link_to "Delete List", junior_path(@junior),
-                        :data => {:confirm => "Are you sure?",
-                                       :method => "delete"} %></p>
-
-<p><%= link_to "Return to juniors", juniors_path %></p>
+<p><%= link_to "Return to Junior Goats", juniors_path %></p>

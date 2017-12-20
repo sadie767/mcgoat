@@ -1,16 +1,16 @@
 <div class="border_form">
-<%= form_for @doe do |f| %>
-  <%= f.label :image %>
-  <%= f.text_field :image %>
-  <br><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br><br>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  <br><br>
-  <%= f.submit %>
-<% end %>
+  <%= form_for @doe do |f| %>
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+    <br><br>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <br><br>
+    <%= f.submit %>
+  <% end %>
 
-<%= render "layouts/errors", :object => @doe %>
+  <%= render "layouts/errors", :object => @doe %>
 </div>

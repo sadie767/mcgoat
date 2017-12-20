@@ -1,4 +1,7 @@
 class JawardsController < ApplicationController
+  before_action :authorize
+  before_action :authorize_admin
+
   def new
       @junior = Junior.find(params[:junior_id])
       @jaward = @junior.jawards.new

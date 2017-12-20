@@ -1,11 +1,14 @@
-<h1>Show Bucks</h1>
+<h1 class="index_title">Bucks</h1>
 <div class="row">
   <% @bucks.each do |buck| %>
+  <br><br><br><br><br><br><br><br>
   <div class="col-md-4">
-    <div class="circle"><%= image_tag('goat.jpg', :width =>'150') %></div>
-    <li><%= link_to buck.name, buck_path(buck) %></li>
-    <li><%= number_to_currency buck.price %></li>
+    <%= image_tag('goat.jpg', :width =>'150', :class => "circle") %>
+    <h3><%= link_to buck.name, buck_path(buck) %></h3>
+    <h3><%= number_to_currency buck.price %></h3>
     </div>
   <% end %>
 </div>
-<h3><%= link_to 'New Buck', new_buck_path %></h3>
+<% if current_user %>
+  <h3><%= link_to 'New Buck', new_buck_path %></h3>
+<% end %>

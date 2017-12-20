@@ -1,5 +1,6 @@
 class BucksController < ApplicationController
-  #  before_action :authorize_admin, :only => [:new, :edit]
+  before_action :authorize, :only => [:new, :edit]
+  before_action :authorize_admin, :only => [:new, :edit]
 
   def index
       @bucks = Buck.all
@@ -17,7 +18,7 @@ class BucksController < ApplicationController
     @buck = Buck.new(buck_params)
     if @buck.save
       # messing with alerts!
-      flash[:notice] = "Wine Successfully added"
+      flash[:notice] = "Buck Successfully added"
       redirect_to  bucks_path
     else
       render :new

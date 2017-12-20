@@ -1,5 +1,6 @@
 class DoesController < ApplicationController
-  #  before_action :authorize_admin, :only => [:new, :edit]
+  before_action :authorize, :only => [:new, :edit]
+  before_action :authorize_admin, :only => [:new, :edit]
 
   def index
       @does = Doe.all
@@ -17,7 +18,7 @@ class DoesController < ApplicationController
     @doe = Doe.new(doe_params)
     if @doe.save
       # messing with alerts!
-      flash[:notice] = "Wine Successfully added"
+      flash[:notice] = "Doe Successfully added"
       redirect_to  does_path
     else
       render :new

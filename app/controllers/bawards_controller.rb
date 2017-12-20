@@ -1,4 +1,7 @@
 class BawardsController < ApplicationController
+  before_action :authorize, :only => [:new, :edit]
+  before_action :authorize_admin_buck
+
   def new
       @buck = Buck.find(params[:buck_id])
       @baward = @buck.bawards.new

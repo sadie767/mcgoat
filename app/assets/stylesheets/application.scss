@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "homes.scss";
+@import "index.scss";
 
 .footer {
  position: fixed;
@@ -26,6 +27,14 @@
  padding: 15px;
 }
 
-.circle {
-    border-radius: 50%;
+.center {
+  text-align: center;
+}
+
+#notice {
+  text-align: center;
+}
+
+#alert {
+  text-align: center;
 }

@@ -1,5 +1,6 @@
 class JuniorsController < ApplicationController
-  #  before_action :authorize_admin, :only => [:new, :edit]
+  before_action :authorize, :only => [:new, :edit]
+  before_action :authorize_admin, :only => [:new, :edit]
 
   def index
       @juniors = Junior.all
@@ -17,7 +18,7 @@ class JuniorsController < ApplicationController
     @junior = Junior.new(junior_params)
     if @junior.save
       # messing with alerts!
-      flash[:notice] = "Wine Successfully added"
+      flash[:notice] = "Junior Goat Successfully added"
       redirect_to  juniors_path
     else
       render :new
