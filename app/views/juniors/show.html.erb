@@ -10,7 +10,8 @@
   <ul>
     <% @junior.jawards.each do |jaward| %>
       <li>
-        <%= jaward.description %> |
+        <%= jaward.award %> |
+        <%= jaward.pedigree %>
         <% if current_user %>
           <%= link_to "Edit Accolades", edit_junior_jaward_path(@junior, jaward) %> |
           <%= link_to "Delete", junior_jaward_path(@junior, jaward),

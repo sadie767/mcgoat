@@ -21,12 +21,12 @@ class JawardsController < ApplicationController
 
     def edit
       @junior = Junior.find(params[:junior_id])
-      @jaward = Juniors_Award.find(params[:id])
+      @jaward = Jaward.find(params[:id])
     end
 
     def update
       @junior = Junior.find(params[:junior_id])
-      @jaward = Juniors_Award.find(params[:id])
+      @jaward = Jaward.find(params[:id])
       if @jaward.update(jaward_params)
         flash[:alert] = "Juniors_Award Successfully Updated"
         redirect_to junior_path(@jaward.junior)
@@ -38,7 +38,7 @@ class JawardsController < ApplicationController
 
     def destroy
       @junior = Junior.find(params[:junior_id])
-      @jaward = Juniors_Award.find(params[:id])
+      @jaward = Jaward.find(params[:id])
       @jaward.destroy
       redirect_to junior_path(@jaward.junior)
     end

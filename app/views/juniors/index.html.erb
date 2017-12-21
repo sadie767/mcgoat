@@ -1,12 +1,13 @@
 <body id="juniors">
-  <h1 class="index_title">Junior Goats</h1>
+  <h1 class="juniors_title">Junior Goats</h1>
+  <br><br><br><br><br><br><br><br><br><br>
   <div class="row">
     <% @juniors.each do |junior| %>
-    <br><br><br><br><br><br><br><br>
-    <div class="col-md-4">
-      <%= image_tag('junior.jpg', :width =>'150', :class => "circle") %>
-      <br><%= link_to junior.name, junior_path(junior), :class => "center" %>
-      <br><%= number_to_currency junior.price, :class => "center" %>
+    <div class="col-md-4" id="juniors_space">
+      <%= image_tag('junior.jpg', :width =>'250', :class => "circle") %>
+      <h1><%= link_to junior.name, junior_path(junior), :class => "name_title" %></h1>
+      <h4 class="name_title"><%= number_to_currency junior.price %></h4>
+      <br><br><br>
       </div>
     <% end %>
   </div>

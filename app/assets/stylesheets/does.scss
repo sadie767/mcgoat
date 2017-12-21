@@ -1,7 +1,30 @@
 body#does {
-  background: url(https://www.weedemandreap.com/wp-content/uploads/2017/08/nigerian-dwarf-goat.jpg) no-repeat center top fixed;
-  -webkit-background-size: 50%;
-  -moz-background-size: 50%;
-  -o-background-size: 50%;
-  background-size: 50%;
+  background: url(https://www.weedemandreap.com/wp-content/uploads/2017/08/nigerian-dwarf-goat.jpg) no-repeat right center fixed;
+  -webkit-background-size: 65%;
+  -moz-background-size: 65%;
+  -o-background-size: 65%;
+  background-size: 65%;
+}
+
+#round {
+  border-radius: 50%;
+}
+
+.does_title {
+  font-size: 100px;
+  font-family: 'Indie Flower'
+}
+
+.name_does {
+  color: black;
+  margin-left: 90px;
+  font-family: 'Indie Flower';
+  text-shadow: 0 0 50px black;
+}
+
+.price_does {
+  color: black;
+  margin-left: 100px;
+  font-family: 'Indie Flower';
+  text-shadow: 0 0 50px black;
 }
