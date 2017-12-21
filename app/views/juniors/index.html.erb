@@ -1,16 +1,15 @@
 <body id="juniors">
   <h1 class="juniors_title">Junior Goats</h1>
-  <br><br><br><br><br><br><br><br><br><br>
-  <div class="row">
+
     <% @juniors.each do |junior| %>
-    <div class="col-md-4" id="juniors_space">
-      <%= image_tag('junior.jpg', :width =>'250', :class => "circle") %>
+
+      <%= image_tag('junior.jpg', :width =>'200', :class => "round") %>
       <h1><%= link_to junior.name, junior_path(junior), :class => "name_title" %></h1>
       <h4 class="name_title"><%= number_to_currency junior.price %></h4>
       <br><br><br>
-      </div>
+
     <% end %>
-  </div>
+
   <% if current_user %>
     <h3><%= link_to 'New Junior', new_junior_path %></h3>
   <% end %>

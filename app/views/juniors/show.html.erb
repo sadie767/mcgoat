@@ -1,35 +1,37 @@
 <%= image_tag 'junior.jpeg', :class => "size_show" %>
-<h1><%= @junior.name %></h1>
-<h2><%= number_to_currency @junior.price %></h2>
-<% if current_user %>
-  <h3><%= link_to 'Edit', edit_junior_path %>
-  <% end %>
-<% if @junior.jawards.any? %>
-  <h4>Here are the accolades for <%= @junior.name %>:</h4>
-
-  <ul>
-    <% @junior.jawards.each do |jaward| %>
-      <li>
-        <%= jaward.award %> |
-        <%= jaward.pedigree %>
-        <% if current_user %>
-          <%= link_to "Edit Accolades", edit_junior_jaward_path(@junior, jaward) %> |
-          <%= link_to "Delete", junior_jaward_path(@junior, jaward),
-                                   :data => {:confirm => "Are you sure?",
-                                                  :method => "delete"} %>
-        <% end %>
-      </li>
+<div class="center">
+  <h1><%= @junior.name %></h1>
+  <h2><%= number_to_currency @junior.price %></h2>
+  <% if current_user %>
+    <h3><%= link_to 'Edit', edit_junior_path %>
     <% end %>
-  </ul>
-<% else %>
-  <p>There Are No Accolades Yet!</p>
-<% end %>
-<% if current_user %>
-  <p><%= link_to "Add Junior Does Pedigree or Award.", new_junior_jaward_path(@junior) %></p>
-  <p><%= link_to "Edit Junior", edit_junior_path(@junior) %></p>
-  <p><%= link_to "Delete Junior", junior_path(@junior),
-                          :data => {:confirm => "Are you sure?",
-                                         :method => "delete"} %></p>
-<% end %>
+  <% if @junior.jawards.any? %>
+    <h4>Here are the accolades for <%= @junior.name %>:</h4>
 
-<p><%= link_to "Return to Junior Goats", juniors_path %></p>
+    <ul>
+      <% @junior.jawards.each do |jaward| %>
+        <li>
+          <%= jaward.award %> |
+          <%= jaward.pedigree %>
+          <% if current_user %>
+            <%= link_to "Edit Accolades", edit_junior_jaward_path(@junior, jaward) %> |
+            <%= link_to "Delete", junior_jaward_path(@junior, jaward),
+                                     :data => {:confirm => "Are you sure?",
+                                                    :method => "delete"} %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There Are No Accolades Yet!</p>
+  <% end %>
+  <% if current_user %>
+    <p><%= link_to "Add Junior Does Pedigree or Award.", new_junior_jaward_path(@junior) %></p>
+    <p><%= link_to "Edit Junior", edit_junior_path(@junior) %></p>
+    <p><%= link_to "Delete Junior", junior_path(@junior),
+                            :data => {:confirm => "Are you sure?",
+                                           :method => "delete"} %></p>
+  <% end %>
+</div>
+
+<p class="return"><%= link_to "Return to Junior Goats", juniors_path %></p>

@@ -1,14 +1,14 @@
 .index_title {
   text-align: center;
   font-size: 100px;
-  font-family: 'Indie Flower'
+  font-family: 'Indie Flower';
+  color: white;
 }
 
 .circle {
-  margin-left: 43%;
+  margin-left: 85%;
   border-radius: 50%;
-  margin-bottom: 10px;
-  }
+}
 
 .size_show {
   height: 500px;
@@ -17,15 +17,21 @@
   border-radius: 50%;
 }
 
-.center {
-  text-align: center;
-}
-
 body#bucks {
-  background: url(http://res.freestockphotos.biz/pictures/12/12367-a-black-goat-sticking-its-head-through-a-barn-window-pv.jpg) no-repeat center top fixed;
+  background: url(http://res.freestockphotos.biz/pictures/12/12367-a-black-goat-sticking-its-head-through-a-barn-window-pv.jpg) no-repeat left top fixed;
   -webkit-background-size: 75%;
   -moz-background-size: 75%;
   -o-background-size: 75%;
   background-size: 75%;
-  min-width: 100%;
+}
+
+.buck_name {
+  margin-left: 88%;
+  font-family: 'Indie Flower';
+  text-shadow: 0 0 50px black;
+  text-align: center;
+}
+
+#black {
+  color: black;
 }

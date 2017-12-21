@@ -1,34 +1,36 @@
 <%= image_tag 'goat.jpeg', :class => "size_show" %>
-<h1><%= @buck.name %></h1>
-<h2><%= number_to_currency @buck.price %></h2>
-<% if current_user %>
-  <h3><%= link_to 'Edit', edit_buck_path %>
-<% end %>
-<% if @buck.bawards.any? %>
-  <h4>Here are the accolades for <%= @buck.name %>:</h4>
+<div class="center">
+  <h1><%= @buck.name %></h1>
+  <h2><%= number_to_currency @buck.price %></h2>
+  <% if current_user %>
+    <h3><%= link_to 'Edit', edit_buck_path %>
+  <% end %>
+  <% if @buck.bawards.any? %>
+    <h4>Here are the accolades for <%= @buck.name %>:</h4>
 
-  <ul>
-    <% @buck.bawards.each do |baward| %>
-      <li>
-        <%= baward.award %> |
-        <%= baward.pedigree %><br>
-        <% if current_user %>
-          <%= link_to "Edit Accolades", edit_buck_baward_path(@buck, baward) %> Buck's Pedigree or Award <br>
-          <%= link_to "Delete", buck_baward_path(@buck, baward),
-                                   :data => {:confirm => "Are you sure?",
-                                                  :method => "delete"} %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There Are No Accolades Yet!</p>
-<% end %>
-<% if current_user %>
-  <p><%= link_to "Add Bucks Pedigree or Award.", new_buck_baward_path(@buck) %></p>
-  <p><%= link_to "Edit Buck", edit_buck_path(@buck) %></p>
-  <p><%= link_to "Delete Buck", buck_path(@buck),
-                          :data => {:confirm => "Are you sure?",
-                                         :method => "delete"} %></p>
-<% end %>
-<p><%= link_to "Return to Bucks", bucks_path %></p>
+    <ul>
+      <% @buck.bawards.each do |baward| %>
+        <li>
+          <%= baward.award %> |
+          <%= baward.pedigree %><br>
+          <% if current_user %>
+            <%= link_to "Edit Accolades", edit_buck_baward_path(@buck, baward) %> Buck's Pedigree or Award <br>
+            <%= link_to "Delete", buck_baward_path(@buck, baward),
+                                     :data => {:confirm => "Are you sure?",
+                                                    :method => "delete"} %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There Are No Accolades Yet!</p>
+  <% end %>
+  <% if current_user %>
+    <p><%= link_to "Add Bucks Pedigree or Award.", new_buck_baward_path(@buck) %></p>
+    <p><%= link_to "Edit Buck", edit_buck_path(@buck) %></p>
+    <p><%= link_to "Delete Buck", buck_path(@buck),
+                            :data => {:confirm => "Are you sure?",
+                                           :method => "delete"} %></p>
+  <% end %>
+</div>
+<p class="return"><%= link_to "Return to Bucks", bucks_path %></p>

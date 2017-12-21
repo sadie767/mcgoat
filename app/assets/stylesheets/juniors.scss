@@ -1,9 +1,9 @@
 body#juniors {
-  background: url(https://render.fineartamerica.com/images/rendered/medium/greeting-card/images/artworkimages/medium/1/sing-it-again-tc-morgan.jpg) no-repeat center top fixed;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
+  background: url(https://render.fineartamerica.com/images/rendered/medium/greeting-card/images/artworkimages/medium/1/sing-it-again-tc-morgan.jpg) no-repeat right bottom fixed;
+  -webkit-background-size: 75%;
+  -moz-background-size: 75%;
+  -o-background-size: 75%;
+  background-size: 75%;
 }
 
 #juniors_space {
@@ -15,11 +15,12 @@ body#juniors {
   font-size: 100px;
   font-family: 'Indie Flower';
   color: white;
+  float: right;
 }
 
 .name_title {
-  color: white;
-  margin-left: 70%;
+  color: black;
+  margin-left: 6%;
   font-family: 'Indie Flower';
   text-shadow: 0 0 50px black;
 }

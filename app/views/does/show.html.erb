@@ -1,34 +1,35 @@
 <%= image_tag 'doe.jpeg', :class => "size_show" %>
-<h1><%= @doe.name %></h1>
-<h2><%= number_to_currency @doe.price %></h2>
-<% if current_user %>
-  <%= link_to 'Edit', edit_do_path %>
-<% end %>
-<% if @doe.dawards.any? %>
-  <h4>Here are the accolades for <%= @doe.name %>:</h4>
+<div class="center">
+  <h1><%= @doe.name %></h1>
+  <h2><%= number_to_currency @doe.price %></h2>
+  <% if current_user %>
+    <%= link_to 'Edit', edit_do_path %>
+  <% end %>
+  <% if @doe.dawards.any? %>
+    <h4>Here are the accolades for <%= @doe.name %>:</h4>
 
-  <ul>
-    <% @doe.dawards.each do |daward| %>
-      <li>
-        <%= daward.description %> |
-        <% if current_user %>
-          <%= link_to "Edit Accolades", edit_do_daward_path(@doe, daward) %> |
-          <%= link_to "Delete", do_daward_path(@doe, daward),
-                                   :data => {:confirm => "Are you sure?",
-                                                  :method => "delete"} %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There Are No Accolades Yet!</p>
-<% end %>
-<% if current_user %>
-  <p><%= link_to "Add Doe's Pedigree or Award", new_do_daward_path(@doe) %></p>
-  <p><%= link_to "Edit doe", edit_do_path(@doe) %></p>
-  <p><%= link_to "Delete Doe", do_path(@doe),
-                          :data => {:confirm => "Are you sure?",
-                                         :method => "delete"} %></p>
-<% end %>
-
-<p><%= link_to "Return to Does", does_path %></p>
+    <ul>
+      <% @doe.dawards.each do |daward| %>
+        <li>
+          <%= daward.description %> |
+          <% if current_user %>
+            <%= link_to "Edit Accolades", edit_do_daward_path(@doe, daward) %> |
+            <%= link_to "Delete", do_daward_path(@doe, daward),
+                                     :data => {:confirm => "Are you sure?",
+                                                    :method => "delete"} %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There Are No Accolades Yet!</p>
+  <% end %>
+  <% if current_user %>
+    <p><%= link_to "Add Doe's Pedigree or Award", new_do_daward_path(@doe) %></p>
+    <p><%= link_to "Edit doe", edit_do_path(@doe) %></p>
+    <p><%= link_to "Delete Doe", do_path(@doe),
+                            :data => {:confirm => "Are you sure?",
+                                           :method => "delete"} %></p>
+  <% end %>
+</div>
+<p class="return"><%= link_to "Return to Does", does_path %></p>

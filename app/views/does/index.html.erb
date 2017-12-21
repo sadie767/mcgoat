@@ -2,7 +2,7 @@
 <h1 class="does_title">Does</h1>
   <% @does.each do |doe| %>
   <br><br><br><br>
-    <%= image_tag('doe.jpg', :width =>'250', :id => "round") %>
+    <%= image_tag('doe.jpg', :width =>'250', :class => "round") %>
     <h1><%= link_to doe.name, do_path(doe), :class => "name_does" %><h1>
     <h3 class="price_does"><%= number_to_currency doe.price %></h3>
   <% end %>
