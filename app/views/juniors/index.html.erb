@@ -1,14 +1,16 @@
-<h1 class="index_title">Junior Goats</h1>
-<div class="row">
-  <% @juniors.each do |junior| %>
-  <br><br><br><br><br><br><br><br>
-  <div class="col-md-4">
-    <%= image_tag('junior.jpg', :width =>'150', :class => "circle") %>
-    <br><%= link_to junior.name, junior_path(junior), :class => "center" %>
-    <br><%= number_to_currency junior.price, :class => "center" %>
-    </div>
+<body id="juniors">
+  <h1 class="index_title">Junior Goats</h1>
+  <div class="row">
+    <% @juniors.each do |junior| %>
+    <br><br><br><br><br><br><br><br>
+    <div class="col-md-4">
+      <%= image_tag('junior.jpg', :width =>'150', :class => "circle") %>
+      <br><%= link_to junior.name, junior_path(junior), :class => "center" %>
+      <br><%= number_to_currency junior.price, :class => "center" %>
+      </div>
+    <% end %>
+  </div>
+  <% if current_user %>
+    <h3><%= link_to 'New Junior', new_junior_path %></h3>
   <% end %>
-</div>
-<% if current_user %>
-  <h3><%= link_to 'New Junior', new_junior_path %></h3>
-<% end %>
+</body>

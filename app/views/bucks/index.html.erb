@@ -1,14 +1,16 @@
-<h1 class="index_title">Bucks</h1>
-<div class="row">
-  <% @bucks.each do |buck| %>
-  <br><br><br><br><br><br><br><br>
-  <div class="col-md-4">
-    <%= image_tag('goat.jpg', :width =>'150', :class => "circle") %>
-    <h3><%= link_to buck.name, buck_path(buck) %></h3>
-    <h3><%= number_to_currency buck.price %></h3>
-    </div>
+<body id="bucks">
+  <h1 class="index_title">Bucks</h1>
+
+    <% @bucks.each do |buck| %>
+    <br><br><br><br>
+
+      <%= image_tag('goat.jpg', :width =>'150', :class => "circle") %>
+      <h3 class="center"><%= link_to buck.name, buck_path(buck) %></h3>
+      <h3 class="center"><%= number_to_currency buck.price %></h3>
+      <hr>
+    <% end %>
+
+  <% if current_user %>
+    <h3><%= link_to 'New Buck', new_buck_path %></h3>
   <% end %>
-</div>
-<% if current_user %>
-  <h3><%= link_to 'New Buck', new_buck_path %></h3>
-<% end %>
+</body>
