@@ -1,6 +1,6 @@
 class BawardsController < ApplicationController
   before_action :authorize, :only => [:new, :edit]
-  before_action :authorize_admin_buck
+  before_action :authorize_admin
 
   def new
       @buck = Buck.find(params[:buck_id])
@@ -11,34 +11,34 @@ class BawardsController < ApplicationController
       @buck = Buck.find(params[:buck_id])
       @baward = @buck.bawards.new(baward_params)
       if @baward.save
-        flash[:alert] = "Bucks_Award Successfully Added"
-        redirect_to do_path(@baward.buck)
+        flash[:alert] = "Buck's Accolades Created Successfully."
+        redirect_to buck_path(@baward.buck)
       else
-        flash[:alert] = "There was a problem creating the award."
+        flash[:alert] = "There Was a  Problem Creating the Accolade."
         render :new
       end
     end
 
     def edit
       @buck = Buck.find(params[:buck_id])
-      @baward = Bucks_Award.find(params[:id])
+      @baward = Baward.find(params[:id])
     end
 
     def update
       @buck = Buck.find(params[:buck_id])
-      @baward = Bucks_Award.find(params[:id])
+      @baward = Baward.find(params[:id])
       if @baward.update(baward_params)
-        flash[:alert] = "Bucks_Award Successfully Updated"
+        flash[:alert] = "Buck's Accolades Successfully Updated."
         redirect_to buck_path(@baward.buck)
       else
-        flash[:alert] = "There was a problem with your update."
+        flash[:alert] = "There Was a Problem With Your Update."
         render :edit
       end
     end
 
     def destroy
       @buck = Buck.find(params[:buck_id])
-      @baward = Bucks_Award.find(params[:id])
+      @baward = Baward.find(params[:id])
       @baward.destroy
       redirect_to buck_path(@baward.buck)
     end

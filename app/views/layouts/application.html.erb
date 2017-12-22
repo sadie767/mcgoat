@@ -51,9 +51,14 @@
           <h4 class="notice" id="notice"><%= notice %></h4>
           <h4 class="alert" id="alert"><%= alert %></h4>
         </div>
+      </div>
+    </body>
         <footer class="footer">
           <div class="container">
-            <ul class="nav navbar-nav navbar-right">
+            <a class="padding" href="http://adga.org/"><%= image_tag 'agda.gif', :width => '40' %></a>
+            <a class="padding" href="http://www.udga.org/"><%= image_tag 'udga.svg', :width => '30' %></a>
+            <a class="padding" href="http://www.americangoatsociety.com/"><%= image_tag 'ags.jpg', :width => '25' %></a>
+            <div class="nav navbar-nav navbar-right">
               <li class="text-muted"><%= link_to 'Admin', user_session_path %></li>
               <% if current_user %>
               <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
@@ -61,6 +66,4 @@
             </ul>
           </div>
         </footer>
-      </div>
-    </body>
   </html>

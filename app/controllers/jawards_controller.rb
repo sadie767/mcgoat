@@ -11,10 +11,10 @@ class JawardsController < ApplicationController
       @junior = Junior.find(params[:junior_id])
       @jaward = @junior.jawards.new(jaward_params)
       if @jaward.save
-        flash[:alert] = "Juniors_Award Successfully Added"
+        flash[:alert] = "Junior's Accolade Successfully Added"
         redirect_to junior_path(@jaward.junior)
       else
-        flash[:alert] = "There was a problem creating the award."
+        flash[:alert] = "There Was a Problem Creating the Award."
         render :new
       end
     end
@@ -28,10 +28,10 @@ class JawardsController < ApplicationController
       @junior = Junior.find(params[:junior_id])
       @jaward = Jaward.find(params[:id])
       if @jaward.update(jaward_params)
-        flash[:alert] = "Juniors_Award Successfully Updated"
+        flash[:alert] = "Junior's Accolade Successfully Updated"
         redirect_to junior_path(@jaward.junior)
       else
-        flash[:alert] = "There was a problem with your update."
+        flash[:alert] = "There Was a Problem With Your Update."
         render :edit
       end
     end
