@@ -1,13 +1,17 @@
+<br><br>
+<h1 class="flower">Add/Edit Awards<br>or Goat's Pedigree:</h1>
+<br><br>
 <div class="border_form">
-<%= form_for [@junior, @jaward] do |f| %>
-  <%= f.label :award %>
-  <%= f.text_field :award %>
-  <br><br>
-  <%= f.label :pedigree %>
-  <%= f.text_field :pedigree %>
-  <br><br>
-  <%= f.submit %>
-<% end %>
+  <%= form_for [@junior, @jaward] do |f| %>
+    <%= f.label :award %>
+    <%= f.text_field :award %>
+    <br><br>
+    <%= f.label :pedigree %>
+    <%= f.text_field :pedigree %>
+    <br><br>
+    <%= f.submit %>
+  <% end %>
 
-<%= render "layouts/errors", :object => @jaward %>
+  <%= render "layouts/errors", :object => @jaward %>
+
 </div>

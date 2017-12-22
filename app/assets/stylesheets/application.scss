@@ -36,12 +36,29 @@
 
 #notice {
   text-align: center;
+  font-family: 'Indie Flower';
 }
 
 #alert {
   text-align: center;
+  font-family: 'Indie Flower';
 }
 
-.return {
+.padding {
+  display: inline;
+  padding-right: 20px;
+}
+
+.flower {
+  font-family: 'Indie Flower';
+}
+
+.border_form {
   text-align: right;
+  margin-right: 900px;
+}
+
+.left {
+  margin-left: 250px;
+  font-family: 'Indie Flower';
 }

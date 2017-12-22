@@ -1,36 +1,64 @@
 <%= image_tag 'goat.jpeg', :class => "size_show" %>
-<div class="center">
-  <h1><%= @buck.name %></h1>
-  <h2><%= number_to_currency @buck.price %></h2>
-  <% if current_user %>
-    <h3><%= link_to 'Edit', edit_buck_path %>
-  <% end %>
-  <% if @buck.bawards.any? %>
-    <h4>Here are the accolades for <%= @buck.name %>:</h4>
-
-    <ul>
-      <% @buck.bawards.each do |baward| %>
-        <li>
-          <%= baward.award %> |
-          <%= baward.pedigree %><br>
-          <% if current_user %>
-            <%= link_to "Edit Accolades", edit_buck_baward_path(@buck, baward) %> Buck's Pedigree or Award <br>
-            <%= link_to "Delete", buck_baward_path(@buck, baward),
-                                     :data => {:confirm => "Are you sure?",
-                                                    :method => "delete"} %>
-          <% end %>
-        </li>
+  <div class="center">
+    <h1><%= @buck.name %> <span><%= number_to_currency @buck.price %></span></h1>
+    <% if current_user %>
+        <h2><%= link_to 'Edit', edit_buck_path %> <%= @buck.name %><h2>
+    <% end %>
+  </div>
+  <div class="left">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Awards:</h1>
+        <% if @buck.bawards.any? %>
+          <h2>Here Are <%= @buck.name %>'s Awards.</h2>
+          <% if @buck.bawards.each do |baward| %>
+              <h2><%= baward.award %></h2>
+                <% if current_user %>
+                  <%= link_to "Edit Award", edit_buck_baward_path(@buck, baward) %> |
+                  <%= link_to "Delete", buck_baward_path(@buck, baward),
+                                           :data => {:confirm => "Are you sure?",
+                                                          :method => "delete"} %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h2>There Are No Awards Yet!</h2>
+        <% end %>
+        <br><br><br>
+      <% if current_user %>
+        <p><%= link_to "Add", new_buck_baward_path(@buck) %> <%= @buck.name %>'s Awards.</p>
+        <p><%= link_to "Edit", edit_buck_baward_path(@buck) %> Awards.</p>
+        <p><%= link_to "Delete", buck_path(@buck),
+                                :data => {:confirm => "Are you sure?",
+                                               :method => "delete"} %> Awards.</p>
       <% end %>
-    </ul>
-  <% else %>
-    <p>There Are No Accolades Yet!</p>
-  <% end %>
-  <% if current_user %>
-    <p><%= link_to "Add Bucks Pedigree or Award.", new_buck_baward_path(@buck) %></p>
-    <p><%= link_to "Edit Buck", edit_buck_path(@buck) %></p>
-    <p><%= link_to "Delete Buck", buck_path(@buck),
-                            :data => {:confirm => "Are you sure?",
-                                           :method => "delete"} %></p>
-  <% end %>
+      </div>
+      <div class="col-md-6">
+        <h1>Pedigree:</h1>
+        <% if @buck.bawards.any? %>
+          <h2>Here is <%= @buck.name %>'s Pedigree:</h2>
+          <% @buck.bawards.each do |baward| %>
+              <h2><%= baward.pedigree %></h2>
+              <% if current_user %>
+                <%= link_to "Edit Pedigree", edit_buck_baward_path(@buck, baward) %> |
+                <%= link_to "Delete", buck_baward_path(@buck, baward),
+                                           :data => {:confirm => "Are you sure?",
+                                                        :method => "delete"} %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h2>Pedigree Not Assigned Yet!</h2>
+        <% end %>
+        <br><br><br>
+      <% if current_user %>
+        <p><%= link_to "Add", new_buck_baward_path(@buck) %> <%= @buck.name %>'s Pedigree.</p>
+        <p><%= link_to "Edit", edit_buck_baward_path(@buck) %> Pedigree.</p>
+        <p><%= link_to "Delete", buck_path(@buck),
+                                :data => {:confirm => "Are you sure?",
+                                               :method => "delete"} %> Pedigree.</p>
+      <% end %>
+      </div>
+  </div>
 </div>
-<p class="return"><%= link_to "Return to Bucks", bucks_path %></p>
+<br><br><br>
+<h4 class="center"><%= link_to "Return to Bucks", bucks_path %></h4>

@@ -1,16 +1,18 @@
+<br><br>
+<h1 class="flower">Add/Edit Goat:</h1>
+<br><br>
 <div class="border_form">
-<%= form_for @buck do |f| %>
-  <%= f.label :image %>
-  <%= f.text_field :image %>
-  <br><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br><br>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  <br><br>
-  <%= f.submit %>
-<% end %>
-
+  <%= form_for @buck do |f| %>
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+    <br><br>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <br><br>
+    <%= f.submit %>
+  <% end %>
 <%= render "layouts/errors", :object => @buck %>
 </div>

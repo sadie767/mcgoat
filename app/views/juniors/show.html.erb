@@ -1,37 +1,60 @@
 <%= image_tag 'junior.jpeg', :class => "size_show" %>
-<div class="center">
-  <h1><%= @junior.name %></h1>
-  <h2><%= number_to_currency @junior.price %></h2>
-  <% if current_user %>
-    <h3><%= link_to 'Edit', edit_junior_path %>
+  <div class="center">
+    <h1><%= @junior.name %> <span><%= number_to_currency @junior.price %></span></h1>
+    <% if current_user %>
+        <h2><%= link_to 'Edit', edit_junior_path %> <%= @junior.name %><h2>
     <% end %>
-  <% if @junior.jawards.any? %>
-    <h4>Here are the accolades for <%= @junior.name %>:</h4>
-
-    <ul>
-      <% @junior.jawards.each do |jaward| %>
-        <li>
-          <%= jaward.award %> |
-          <%= jaward.pedigree %>
-          <% if current_user %>
-            <%= link_to "Edit Accolades", edit_junior_jaward_path(@junior, jaward) %> |
-            <%= link_to "Delete", junior_jaward_path(@junior, jaward),
-                                     :data => {:confirm => "Are you sure?",
-                                                    :method => "delete"} %>
-          <% end %>
-        </li>
+  </div>
+  <div class="left">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Awards:</h1>
+        <% if @junior.jawards.any? %>
+          <h2>Here Are <%= @junior.name %>'s Awards:
+            <% @junior.jawards.each do |jaward| %>
+              <h2><%= jaward.award %></h2>
+                <% if current_user %>
+                  <%= link_to "Edit Award", edit_junior_jaward_path(@junior, jaward) %> |
+                  <%= link_to "Delete", junior_jaward_path(@junior, jaward),
+                                           :data => {:confirm => "Are you sure?",
+                                                          :method => "delete"} %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h2>There Are No Awards Yet!</h2>
+        <% end %>
+        <br><br><br>
+      <% if current_user %>
+        <p><%= link_to "Add", new_junior_jaward_path(@junior) %> <%= @junior.name %>'s Awards.</p>
+        <p><%= link_to "Edit", edit_junior_jaward_path(@junior) %> <%= @junior.name %>'s Awards.</p>
       <% end %>
-    </ul>
-  <% else %>
-    <p>There Are No Accolades Yet!</p>
-  <% end %>
-  <% if current_user %>
-    <p><%= link_to "Add Junior Does Pedigree or Award.", new_junior_jaward_path(@junior) %></p>
-    <p><%= link_to "Edit Junior", edit_junior_path(@junior) %></p>
-    <p><%= link_to "Delete Junior", junior_path(@junior),
-                            :data => {:confirm => "Are you sure?",
-                                           :method => "delete"} %></p>
-  <% end %>
+      </div>
+      <div class="col-md-6">
+        <h1>Pedigree:</h1>
+        <% if @junior.jawards.any? %>
+          <h2>Here is <%= @junior.name %>'s Pedigree:</h2>
+            <% @junior.jawards.each do |jaward| %>
+                <h2><%= jaward.pedigree %></h2>
+                <% if current_user %>
+                  <%= link_to "Edit Pedigree", edit_junior_jaward_path(@junior, jaward) %> |
+                  <%= link_to "Delete", junior_jaward_path(@junior, jaward),
+                                           :data => {:confirm => "Are you sure?",
+                                                          :method => "delete"} %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h2>Pedigree Not Assigned Yet!</h2>
+        <% end %>
+        <br><br><br>
+      <% if current_user %>
+        <p><%= link_to "Add", new_junior_jaward_path(@junior) %> <%= @junior.name %>'s Pedigree.</p>
+        <p><%= link_to "Edit", edit_junior_jaward_path(@junior) %> <%= @junior.name %>'s Pedigree.</p>
+      <% end %>
+      </div>
+  </div>
 </div>
-
-<p class="return"><%= link_to "Return to Junior Goats", juniors_path %></p>
+<br><br><br>
+<h5 class="center"><%= link_to "Delete", junior_path(@junior),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %> <%=@junior.name %>.</h5>
+<h4 class="center"><%= link_to "Return to Junior Bucks", juniors_path %></h4>
