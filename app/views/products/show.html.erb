@@ -1,0 +1,9 @@
+<h3><%= @product.name %></h3>
+<h4><%= @product.price %></h4>
+<h4><%= number_to_currency @product.price %></h4>
+<br><br>
+<%= form_for @order_item do |f| %>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <%= f.number_field :quantity %>
+  <%= f.submit "Add to cart" %>
+<% end %></p>

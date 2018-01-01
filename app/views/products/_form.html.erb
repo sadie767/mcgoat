@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @product %>
+
+<%= form_for [@product] do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :price %><br>
+  <%= f.text_field :price %><br>
+  <%= f.hidden_field(:user_id, :value => current_user.id) %><br>
+  <%= f.submit %>
+<% end %>
