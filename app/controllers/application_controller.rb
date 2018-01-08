@@ -18,7 +18,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin
-    if current_user.admin === false
+    if current_user.admin === true
+      new_product_path
+    else
       flash[:alert] = "Only an admin can visit this page."
       redirect_to '/'
     end
