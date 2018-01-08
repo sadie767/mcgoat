@@ -1,6 +1,7 @@
 Doe.destroy_all
 Buck.destroy_all
 Junior.destroy_all
+Product.destroy_all
 
 doe_list = [
   [ "Betty", "400.0" ],
@@ -46,3 +47,15 @@ junior_list.each do |name, price|
 end
 
 p "Created #{Junior.count} juniors"
+
+product_list = [
+  [ "baby1", "500.0" ],
+  [ "baby2", "400.0" ],
+  [ "baby3", "300.0" ]
+]
+
+product_list.each do |name, price|
+  Product.create( name: name, price: price )
+end
+
+p "Created #{Product.count} products"
