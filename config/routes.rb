@@ -14,12 +14,9 @@ Rails.application.routes.draw do
   resources :juniors do
     resources :jawards, :except => [:show, :index]
   end
-<<<<<<< HEAD
 
-=======
-  
+
   resources :order_items
->>>>>>> new_branch
   resources :products
   resource :cart, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

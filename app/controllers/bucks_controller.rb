@@ -17,7 +17,6 @@ class BucksController < ApplicationController
   def create
     @buck = Buck.new(buck_params)
     if @buck.save
-      # messing with alerts!
       flash[:notice] = "Buck Successfully added."
       redirect_to  bucks_path
     else
